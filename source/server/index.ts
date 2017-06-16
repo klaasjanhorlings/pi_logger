@@ -1,6 +1,10 @@
-const express = require("express");
-const app = express();
 
-app.get("/", (req, res) => {
-    res.send("Hello world!");
+import * as express from "express";
+import * as sqlite from "sqlite3";
+import log from "./logging";
+import app from "./app";
+
+const server = app.listen(80, () => {
+    const address = server.address();
+    log.info(`Server started listening at ${address.address}:${address.port}`);
 });
